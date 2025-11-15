@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Posicionamiento Web</title>
+
+<!-- Tipografía -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+<style>
+    body {
+        font-family: 'Poppins', sans-serif;
+        margin: 0;
+        padding: 0;
+        background-image: url('https://img.freepik.com/foto-gratis/fondo-diseno-digital-lineas-dinamicas_23-2151019458.jpg');
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed;
+        color: #ffffff;
+    }
+
+    header {
+        background: rgba(0, 90, 160, 0.85);
+        text-align: center;
+        padding: 20px 10px;
+        font-size: 24px;
+        font-weight: 600;
+    }
+
+    .contenedor {
+        display: grid;
+        grid-template-columns: 25% 1fr;
+        padding: 30px;
+        gap: 20px;
+        background: rgba(0, 0, 0, 0.45);
+        margin: 30px;
+        border-radius: 12px;
+    }
+
+    /* Menú lateral */
+    .menu {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .menu button {
+        padding: 15px;
+        font-size: 18px;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        background: #00bcd4;
+        color: #003047;
+        font-weight: 600;
+        transition: 0.3s;
+    }
+
+    .menu button:hover {
+        background: #0097a7;
+        transform: translateX(5px);
+    }
+
+    /* Recuadro de contenido */
+    .contenido {
+        background: rgba(255, 255, 255, 0.15);
+        padding: 20px;
+        border-radius: 12px;
+        min-height: 280px;
+        backdrop-filter: blur(6px);
+        animation: fadein 0.5s ease;
+    }
+
+    @keyframes fadein {
+        from { opacity: 0; transform: translateY(10px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+
+    .contenido img {
+        width: 100%;
+        max-width: 450px;
+        margin-top: 15px;
+        border-radius: 10px;
+        display: block;
+    }
+
+    .contenido h2 {
+        margin-top: 0;
+        color: #00eaff;
+    }
+
+    footer {
+        background: rgba(0, 90, 160, 0.85);
+        text-align: center;
+        padding: 15px;
+        margin-top: 40px;
+        font-size: 16px;
+    }
+
+    @media (max-width: 850px) {
+        .contenedor {
+            grid-template-columns: 1fr;
+        }
+    }
+</style>
+
+<script>
+    function mostrarInfo(tipo) {
+        const contenido = document.getElementById("info");
+
+        let texto = "";
+
+        if (tipo === "seo") {
+            texto = `
+                <h2>SEO (Search Engine Optimization)</h2>
+                <p>
+                    SEO mejora la posición de un sitio web en los resultados orgánicos de motores de búsqueda
+                    como Google mediante técnicas de optimización interna y externa.
+                </p>
+                <ul>
+                    <li>Mejor uso de palabras clave</li>
+                    <li>Contenido optimizado</li>
+                    <li>Velocidad del sitio mejorada</li>
+                    <li>Enlaces internos y externos</li>
+                </ul>
+                <img src="https://img.freepik.com/foto-gratis/seo-concept-illustration_23-2148532063.jpg" alt="SEO">
+            `;
+        }
+
+        if (tipo === "sem") {
+            texto = `
+                <h2>SEM (Search Engine Marketing)</h2>
+                <p>
+                    El SEM se basa en campañas pagadas que permiten que un sitio aparezca en las primeras
+                    posiciones mediante anuncios y estrategias PPC (Pago por clic).
+                </p>
+                <ul>
+                    <li>Google Ads</li>
+                    <li>Campañas PPC</li>
+                    <li>Resultados inmediatos</li>
+                    <li>Segmentación precisa</li>
+                </ul>
+                <img src="https://img.freepik.com/foto-gratis/marketing-digital-estrategia-publicidad-online_23-2149536930.jpg" alt="SEM">
+            `;
+        }
+
+        if (tipo === "visibilidad") {
+            texto = `
+                <h2>Visibilidad en Resultados</h2>
+                <p>
+                    La visibilidad depende de qué tan fácil es que los usuarios encuentren tu sitio
+                    al buscar un tema específico. Se evalúa por el lugar que ocupas en Google.
+                </p>
+                <ul>
+                    <li>Aparición en primeros lugares</li>
+                    <li>CTR (porcentaje de clics)</li>
+                    <li>Resultados enriquecidos</li>
+                    <li>Relevancia del contenido</li>
+                </ul>
+                <img src="https://img.freepik.com/foto-gratis/analisis-resultados-busqueda-online_23-2149023272.jpg" alt="Visibilidad">
+            `;
+        }
+
+        contenido.innerHTML = texto;
+    }
+</script>
+
+</head>
+
+<body>
+
+<header>
+    POSICIONAMIENTO WEB
+</header>
+
+<div class="contenedor">
+    <!-- Menú lateral -->
+    <div class="menu">
+        <button onclick="mostrarInfo('seo')">SEO</button>
+        <button onclick="mostrarInfo('sem')">SEM</button>
+        <button onclick="mostrarInfo('visibilidad')">Visibilidad en Resultados</button>
+    </div>
+
+    <!-- Recuadro dinámico -->
+    <div class="contenido" id="info">
+        <h2>Haz clic en un subtema</h2>
+        <p>Selecciona SEO, SEM o Visibilidad para ver la información correspondiente.</p>
+        <img src="https://img.freepik.com/foto-gratis/analisis-seo-monitor_23-2148621854.jpg" alt="Intro">
+    </div>
+</div>
+
+<footer>
+    Josué Israel Jiménez Beltrán — 2025
+</footer>
+
+</body>
+</html>
